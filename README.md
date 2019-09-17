@@ -19,7 +19,7 @@ The `get` method _suspends_ if the object is in the "unready" state, until it be
 The implementation is based on Kotlin [_coroutines_](https://kotlinlang.org/docs/reference/coroutines/coroutines-guide.html), that are lightweight parallel threads.
 A coroutine is a stack of functions (methods) with `suspend` modifiers plus possibly regular functions (methods), which the last `suspend` function have called.
 The first `suspend` function of a coroutine is called inside of the argument of the `launch` or `runBlocking` library functions.
-The `launch` library function creates a new coroutine, which will be started in parallel later when a free core thread is available.
+The `launch` function creates a new coroutine, which will be started in parallel later when a free core thread is available.
 
 Each `LongM` object uses an own private object `unready` of class `Suspender` that keeps a queue of coroutines that have been suspended by an invocation of the `suspend` method.
 The suspended coroutines are released by the `releaseAll` method.
