@@ -16,9 +16,9 @@ The beginning and end of the code used in figures are marked with comment lines 
 The code contains a monotonic class `longM` that implements I_structure [Arvind _et al_ 1989], that is an object with a `Long` field that changes monotonically from the initial "undefined", "unready" state on object creation to a state "defined" with a `Long` value by method `set` and then possibly to the "overdefined", "contradictory" state by another invocation of `set` with an unequal value, implemented as an exception.
 The `get` method _suspends_ if the object is in the "unready" state, until it becomes "defined" after an invocation of `set`.
 
-The implementation is based on Kotlin [_coroutines_](https://kotlinlang.org/docs/reference/coroutines/coroutines-guide.html), lightweight parallel threads.
-A coroutine is a stack of functions (methods) with `suspend` modifiers and regular functions (methods), which they may have called.
-The top `suspend` function of a coroutine is called inside of the argument of the `launch` or `runBlocking` library functions.
+The implementation is based on Kotlin [_coroutines_](https://kotlinlang.org/docs/reference/coroutines/coroutines-guide.html), that are lightweight parallel threads.
+A coroutine is a stack of functions (methods) with `suspend` modifiers plus possibly regular functions (methods), which the last `suspend` function have called.
+The first `suspend` function of a coroutine is called inside of the argument of the `launch` or `runBlocking` library functions.
 The `launch` library function creates a new coroutine, which will be started in parallel later when a free core thread is available.
 
 Each `LongM` object uses an own private object `unready` of class `Suspender` that keeps a queue of coroutines that have been suspended by an invocation of the `suspend` method.
