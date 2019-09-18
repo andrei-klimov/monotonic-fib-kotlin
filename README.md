@@ -1,6 +1,6 @@
 ## Code for Paper: _An Approach to Construction of a Deterministic Parallel Programming System Based on Monotonic Objects_
 
-This is Kotlin code for Figures 2 and 3 in the paper (in Russian):
+This is full Kotlin code of the example in Figures 2 and 3 in the paper (in Russian):
 
 * Алексей И. Адамович, Андрей В. Климов.
 __Подход к построению системы детерминированного параллельного программирования на основе монотонных объектов__ // [_Вестник СибГУТИ._](http://vestnik.sibsutis.ru/) — 2019. — № 3. — 13 с. — ISSN 1998-6920. —
